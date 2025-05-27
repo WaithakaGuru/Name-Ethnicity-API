@@ -6,16 +6,16 @@ const apiLink = "https://api.nationalize.io/?name=";
 
 const getCountryNames = new Intl.DisplayNames(["en"], { type: "region" });
 
-const getNationality = async () => {
+const getNationality = async (nameInfo) => {
   const request = await fetch(`${apiLink}+${nameInfo}`);
   const results = await request.json();
   return results;
 };
 
-function display() {
-  let data = getNationality();
+function display(name) {
+  let data = getNationality(name);
   data = data.country;
-  resultsHolder.innerHTML = `<b class="name-holder">${nameInfo}</b> is found in:  <br>`;
+  resultsHolder.innerHTML = `<b class="name-holder">${name}</b> is found in:  <br>`;
   for (let i = 0; i < 5; i++) {
     const { id, prob } = data[i];
     resultsHolder.innerHTML += `<li class="item">${getCountryNames.of(id)}  ${prob * 100} % Sure</li>`;
@@ -24,20 +24,21 @@ function display() {
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("Clicked");
-  const nameInfo = nameInput.textContent;
+  const nameInfo = nameInput.value;
   try {
-    if (nameInfo.length === 0) {
-      console.log("Please enter a name!!");
+    if (nameInfo === '') {
       resultsHolder.textContent = "Please enter a name!!";
       return;
     } else {
       submitBtn.innerHTML = "Searching";
-      submitBtn.setAttribute("disable", true);
-      display();
+      submitBtn.setAttribute("disabled", true);
+      display(nameInfo);    
     }
   } catch (e) {
-    resultsHolder.textContent =
-      "ERROR: Something went Wrong. Try Again Later!!";
+        resultsHolder.textContent =
+        "ERROR: Something went Wrong. Try Again Later!!";
+  }finally{
+        submitBtn.removeAttribute("disabled");
+        submitBtn.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i>`;
   }
 });
