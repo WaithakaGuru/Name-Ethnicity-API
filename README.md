@@ -42,7 +42,7 @@ Nationalize.io predicts the nationality of a person based on their name using da
 
 ## 🫵 Try it out :
 
-> Live Link: [DemoLinkHere.com](#)
+> Live Link: [NameEthnicity](https://name-ethnicity-api.vercel.app/)
 
 ---
 
