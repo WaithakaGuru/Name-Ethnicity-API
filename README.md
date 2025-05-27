@@ -55,9 +55,9 @@ Nationalize.io predicts the nationality of a person based on their name using da
 ## 🛠️ Built With
 
 - HTML5
-- CSS3 (or Tailwind/Bootstrap if applicable)
+- CSS 3
 - JavaScript (ES6+)
-- Fetch API or Axios
+- Fetch API
 - [Nationalize.io](https://nationalize.io/)
 
 ---
