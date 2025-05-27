@@ -48,7 +48,7 @@ Nationalize.io predicts the nationality of a person based on their name using da
 
 ## 📸 Screenshot
 
-![screenshot](./screenshot.png)
+![screenshot](./public/image.png)
 
 ---
 
@@ -82,8 +82,6 @@ Type any first name in the input field and hit "Submit" or press Enter. The app 
 ## Example API Response
 
 ```json
-Copy
-Edit
 {
   "name": "andrea",
   "country": [
